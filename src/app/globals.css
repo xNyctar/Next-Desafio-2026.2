@@ -1,1 +1,83 @@
 @import "tailwindcss";
+
+@theme {
+  /*  ---------------------------------  Fontes  --------------------------------- */
+  --font-poppins: var(--font-poppins), sans-serif;
+  --font-open-sans: var(--font-open-sans), sans-serif;
+
+  /*  --------------------------------- Cores  ---------------------------------  */
+  --color-grey-100: #ffffff;
+  --color-grey-200: #b7b5b5;
+  --color-blue-100: #14213d;
+  --color-blue-200: #0a111f;
+  --color-orange-100: #ffc76b;
+  --color-orange-200: #fca311;
+}
+
+/*  ----------  Estilização de Fontes de Títulos ou Textos  ----------------------- */
+@utility text-heading-h1 {
+  font-family: var(--font-poppins), sans-serif;
+  font-size: 40px;
+  font-weight: 600;
+}
+
+@utility text-heading-h2 {
+  font-family: var(--font-poppins), sans-serif;
+  font-size: 32px;
+  font-weight: 600;
+}
+
+@utility text-heading-h3 {
+  font-family: var(--font-poppins), sans-serif;
+  font-size: 26px;
+  font-weight: 600;
+}
+
+@utility text-heading-h4 {
+  font-family: var(--font-poppins), sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+@utility text-heading-h5 {
+  font-family: var(--font-poppins), sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+@utility text-heading-h6 {
+  font-family: var(--font-poppins), sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+/* ----------------------- Estilização de Fontes de Subtextos ----------------------- */
+@utility text-body-h1 {
+  font-family: var(--font-open-sans), sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+}
+
+@utility text-body-h2 {
+  font-family: var(--font-open-sans), sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+@utility text-body-h3 {
+  font-family: var(--font-open-sans), sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+@utility text-body-h4 {
+  font-family: var(--font-open-sans), sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+@utility text-body-h5 {
+  font-family: var(--font-open-sans), sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+}

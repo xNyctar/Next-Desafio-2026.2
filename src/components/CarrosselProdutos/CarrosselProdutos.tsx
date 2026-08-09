@@ -50,7 +50,7 @@ export const CarrosselProdutos = ({
           </button>
 
           <div className="overflow-hidden w-full" ref={emblaRef}>
-            <div className="flex -ml-4">
+            <div className="flex -ml-8">
               {produtos.map((produto) => (
                 <div
                   key={produto.id}
@@ -58,7 +58,7 @@ export const CarrosselProdutos = ({
                 >
                   <div className="bg-blue-200 rounded-2xl overflow-hidden flex flex-col h-full ">
                     
-                    <div className="bg-grey-100 p-4 flex items-center justify-center h-47  relative rounded-t-2xl">
+                    <div className="bg-grey-100 p-4 flex items-center justify-center h-48  relative rounded-t-2xl">
                       <Image
                         src={produto.imagem}
                         alt={produto.nome}

@@ -102,7 +102,7 @@ export const CarrosselProdutos = ({
           </button>
         </div>
 
-        <span className="text-grey-100 text-body-h5 mt-4">1</span>
+        <span className="text-grey-100 text-body-h3 mt-4">1</span>
       </div>
     </section>
   );

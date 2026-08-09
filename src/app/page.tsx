@@ -42,7 +42,7 @@ const memorias: Produto[] = [
     preco: "R$ 650,00",
     descricao:
       "Se você percebe que seu computador está com baixo desempenho ou que sua capacidade não atende às suas necessidades de uso, é hora de renovar sua",
-    imagem: "/memoria-1",
+    imagem: "/memoria-1.svg",
   },
   {
     id: 2,
@@ -50,7 +50,7 @@ const memorias: Produto[] = [
     preco: "R$ 844,11",
     descricao:
       "A Memória Ram Twoingames DDR4 RGB Cor Branca de 16GB e 3200MHz é a escolha perfeita para gamers e entusiastas de tecnologia que buscam",
-    imagem: "/memoria-2",
+    imagem: "/memoria-2.svg",
   },
   {
     id: 3,
@@ -58,7 +58,7 @@ const memorias: Produto[] = [
     preco: "R$ 775,03",
     descricao:
       "O que você precisa saber sobre este produto. Unidades por kit: 1. Cada módulo tem capacidade de 8 GB de memória. Formato DIMM",
-    imagem: "/memoria-3",
+    imagem: "/memoria-3.svg",
   },
   {
     id: 4,
@@ -66,7 +66,7 @@ const memorias: Produto[] = [
     preco: "R$ 775,03",
     descricao:
       "O que você precisa saber sobre este produto. Unidades por kit: 1. Cada módulo tem capacidade de 8 GB de memória. Formato DIMM",
-    imagem: "/memoria-1",
+    imagem: "/memoria-1.svg",
   },
 ];
 
@@ -77,7 +77,7 @@ const escritorios: Produto[] = [
     preco: "R$ 215,49",
     descricao:
       "A Mesa Gamer Industrial de 150 cm da marca MAYA é ideal para quem procura um espaço funcional e estético, perfeito",
-    imagem: "/escritorio-1",
+    imagem: "/escritorio-1.svg",
   },
   {
     id: 2,
@@ -85,7 +85,7 @@ const escritorios: Produto[] = [
     preco: "R$ 254,99",
     descricao:
       "A Mesa de Trabalho Industrial 150cm com Pé de Ferro da marca Maya é a escolha ideal para quem busca funcionalidade",
-    imagem: "/escritorio-2",
+    imagem: "/escritorio-2.svg",
   },
   {
     id: 3,
@@ -93,7 +93,7 @@ const escritorios: Produto[] = [
     preco: "R$ 950,59",
     descricao:
       "A mesa elétrica automática com altura ajustável BlackAir é a solução ideal para quem procura um espaço de trabalho",
-    imagem: "/escritorio-3",
+    imagem: "/escritorio-3.svg",
   },
   {
     id: 4,
@@ -101,7 +101,7 @@ const escritorios: Produto[] = [
     preco: "R$ 215,49",
     descricao:
       "A Mesa Gamer Industrial de 150 cm da marca MAYA é ideal para quem procura um espaço funcional e estético, perfeito",
-    imagem: "/escritorio-1",
+    imagem: "/escritorio-1.svg",
   },
 ];
 
@@ -165,7 +165,7 @@ export default function Home() {
           </h2>
           <div className="flex-1 h-[1px] bg-grey-100" />
         </div>
-        <CarrosselProdutos produtos={notebooks} />
+        <CarrosselProdutos produtos={escritorios} />
       </section>
       </section>
     </main>

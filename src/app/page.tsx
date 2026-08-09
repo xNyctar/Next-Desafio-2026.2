@@ -175,9 +175,9 @@ export default function Home() {
             potencializar seus jogos, edições e projetos de alta exigência.
           </p>
           <div className="w-full flex md:justify-center justify-start">
-            <button className="bg-orange-200 text-black hover:bg-orange-100 md:text-heading-h5 text-heading-h6 md:px-20 px-5 py-2.5 rounded-2xl cursor-pointer">
+            <a href="#ofertas" className="bg-orange-200 text-black hover:bg-orange-100 md:text-heading-h5 text-heading-h6 md:px-20 px-5 py-2.5 rounded-2xl cursor-pointer">
               Aproveite nossas ofertas
-            </button>
+            </a>
           </div>
         </div>
       </section>
@@ -224,7 +224,7 @@ export default function Home() {
       </section>
 
       {/* Seção quem somos */}
-      <section className="w-full px-6 py-12 ">
+      <section className="w-full px-6 py-10 mb-20">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12">
           <div className="w-full md:w-[50%] flex flex-col items-center">
             <h2 className="text-heading-h3 md:text-heading-h2 text-grey-100 text-center mb-6 font-semibold">
@@ -261,7 +261,7 @@ export default function Home() {
       <MissaoVisaoValores />
 
       {/* Seção de Super Ofertas */}
-      <section className="w-full p-4">
+      <section className="w-full p-4" id="ofertas">
         <div className="w-full flex items-center gap-4 md:gap-8">
           <div className="flex-1 h-[1px] bg-grey-100" />
           <h2 className="text-heading-h2 whitespace-nowrap">

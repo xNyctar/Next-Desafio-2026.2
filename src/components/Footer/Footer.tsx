@@ -2,8 +2,22 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+
 
 export const Footer = () => {
+
+    
+const pathname = usePathname();
+
+if (
+    pathname === "/gerenciamento" ||
+    pathname === "/login" ||
+    pathname === "/cadastro"
+  ) {
+    return null;
+  }
+
   return (
     <footer className="flex w-full flex-col md:flex-row mx-auto px-5 py-2.5 bg-blue-100 text-grey-100 md:px-2.5 md:py-6.25 justify-between items-center">
       <div className="flex flex-col gap-4 order-3 md:order-1  md:w-auto">

@@ -3,6 +3,7 @@ import {
   CarrosselProdutos,
   Produto,
 } from "../components/CarrosselProdutos/CarrosselProdutos";
+import { MissaoVisaoValores } from "../components/MissaoVisaoValores";
 
 const notebooks: Produto[] = [
   {
@@ -213,6 +214,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+  <MissaoVisaoValores />
     </main>
   );
 }

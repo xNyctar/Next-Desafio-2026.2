@@ -1,5 +1,8 @@
 import Image from "next/image";
-import { CarrosselProdutos, Produto } from "../components/CarrosselProdutos/CarrosselProdutos";
+import {
+  CarrosselProdutos,
+  Produto,
+} from "../components/CarrosselProdutos/CarrosselProdutos";
 
 const notebooks: Produto[] = [
   {
@@ -107,7 +110,7 @@ const escritorios: Produto[] = [
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-blue-200 text-grey-100 gap-2.5 ">
+    <main className="min-h-screen bg-blue-200 text-grey-100 gap-1 ">
       <section className="relative w-full min-h-[420px] md:min-h-[480px] overflow-hidden flex items-center p-8 md:p-12">
         <Image
           src="/Imagem-landing-page.jpg"
@@ -138,38 +141,77 @@ export default function Home() {
       </section>
 
       <section className="p-4">
-         <section className="w-full">
-        <div className="flex items-center gap-4 w-full">
-          <h2 className="text-heading-h3 md:text-heading-h2 text-grey-100">
-            Notebooks
-          </h2>
-          <div className="flex-1 h-[1px] bg-grey-100" />
-        </div>
-        <CarrosselProdutos produtos={notebooks} bgContainer="bg-gradient-to-l from-[#14213D] to-[#3558A3] " />
-      </section>
+        <section className="w-full">
+          <div className="flex items-center gap-4 w-full">
+            <h2 className="text-heading-h3 md:text-heading-h2 text-grey-100">
+              Notebooks
+            </h2>
+            <div className="flex-1 h-[1px] bg-grey-100" />
+          </div>
+          <CarrosselProdutos
+            produtos={notebooks}
+            bgContainer="bg-gradient-to-l from-[#14213D] to-[#3558A3] "
+          />
+        </section>
 
-      <section className="w-full">
-        <div className="flex items-center gap-4 w-full">
-          <div className="flex-1 h-[1px] bg-grey-100" />
-          <h2 className="text-heading-h3 md:text-heading-h2 text-grey-100">
-            Peças de Memória
-          </h2>
-        </div>
-        <CarrosselProdutos produtos={memorias} bgContainer="bg-gradient-to-r from-[#14213D] to-[#3558A3]"/>
-      </section>
+        <section className="w-full">
+          <div className="flex items-center gap-4 w-full">
+            <div className="flex-1 h-[1px] bg-grey-100" />
+            <h2 className="text-heading-h3 md:text-heading-h2 text-grey-100">
+              Peças de Memória
+            </h2>
+          </div>
+          <CarrosselProdutos
+            produtos={memorias}
+            bgContainer="bg-gradient-to-r from-[#14213D] to-[#3558A3]"
+          />
+        </section>
 
-      <section className="w-full">
-        <div className="flex items-center gap-4 w-full">
-          <h2 className="text-heading-h3 md:text-heading-h2 text-grey-100">
-            Escritório
-          </h2>
-          <div className="flex-1 h-[1px] bg-grey-100" />
-        </div>
-        <CarrosselProdutos produtos={escritorios} bgContainer="bg-gradient-to-l from-[#14213D] to-[#3558A3] " />
+        <section className="w-full">
+          <div className="flex items-center gap-4 w-full">
+            <h2 className="text-heading-h3 md:text-heading-h2 text-grey-100">
+              Escritório
+            </h2>
+            <div className="flex-1 h-[1px] bg-grey-100" />
+          </div>
+          <CarrosselProdutos
+            produtos={escritorios}
+            bgContainer="bg-gradient-to-l from-[#14213D] to-[#3558A3] "
+          />
+        </section>
       </section>
-      </section>
-      <section>
+      {/* Seção quem somos */}
+      <section className="w-full px-6 py-12 ">
+        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12">
+          <div className="w-full md:w-[50%] flex flex-col items-center">
+            <h2 className="text-heading-h3 md:text-heading-h2 text-grey-100 text-center mb-6 font-semibold">
+              Quem somos?
+            </h2>
 
+            <div className="w-full h-[1px] bg-grey-100 mb-6" />
+
+            <p className="text-body-h5 md:text-body-h3 text-grey-100 text-center leading-relaxed">
+              A Quantum Store nasceu com o propósito de redefinir a sua
+              experiência de compra. Inspirados pela ideia de evolução contínua
+              e velocidade, nós buscamos muito mais do que apenas oferecer
+              produtos: queremos entregar soluções inovadoras, modernas e de
+              alta qualidade que facilitem o seu dia a dia. Nosso compromisso é
+              conectar você às melhores tendências do mercado de forma ágil,
+              segura e inteligente, proporcionando um verdadeiro salto de
+              qualidade na forma como você consome.
+            </p>
+          </div>
+
+          <div className="w-full md:w-[35%] flex justify-center items-center">
+            <Image
+              src="/logo.svg"
+              alt="Logo Quantum Store"
+              width={260}
+              height={260}
+              className=" w-72 md:w-[380px] lg:w-[420px]"
+            />
+          </div>
+        </div>
       </section>
     </main>
   );

@@ -15,13 +15,15 @@ export interface Produto {
 
 interface CarrosselProdutosProps {
   produtos: Produto[];
+  bgContainer?: string;
+  bgCard?: string;
 }
 
 export const CarrosselProdutos = ({
   produtos,
+  bgContainer = "bg-blue-100",
+  bgCard = "bg-blue-200",
 }: CarrosselProdutosProps) => {
-
-
   const [emblaRef, emblaApi] = useEmblaCarousel({
     align: "start",
     loop: true,
@@ -37,10 +39,11 @@ export const CarrosselProdutos = ({
 
   return (
     <section className="w-full my-8 flex flex-col gap-4 p-4">
-  
-      <div className="relative bg-blue-100 p-4 md:p-8 rounded-3xl flex flex-col items-center">
+      {/* Sintaxe corrigida com as chaves {} cobrindo as crases `` */}
+      <div
+        className={`relative ${bgContainer} p-4 md:p-8 rounded-3xl flex flex-col items-center`}
+      >
         <div className="w-full flex items-center gap-2 md:gap-4">
-          
           <button
             onClick={scrollPrev}
             className="text-grey-100 hover:text-orange-200 transition-colors p-1 cursor-pointer"
@@ -56,9 +59,10 @@ export const CarrosselProdutos = ({
                   key={produto.id}
                   className="flex-[0_0_100%] sm:flex-[0_0_50%] lg:flex-[0_0_33.333%] px-3 min-w-0"
                 >
-                  <div className="bg-blue-200 rounded-2xl overflow-hidden flex flex-col h-full ">
-                    
-                    <div className="bg-grey-100 p-4 flex items-center justify-center h-48  relative rounded-t-2xl">
+                  <div
+                    className={`${bgCard} rounded-2xl shadow-[13px_10px_4px_0_rgba(0,0,0,0.25)] overflow-hidden flex flex-col h-full`}
+                  >
+                    <div className="bg-grey-100 p-4 flex items-center justify-center h-48 relative rounded-t-2xl">
                       <Image
                         src={produto.imagem}
                         alt={produto.nome}
@@ -73,7 +77,7 @@ export const CarrosselProdutos = ({
                       </h3>
 
                       <div>
-                        <span className="bg-orange-200 text-black text-heading-h5  px-3 py-1 rounded-2xl inline-block">
+                        <span className="bg-orange-200 text-black text-heading-h5 px-3 py-1 rounded-2xl inline-block">
                           {produto.preco}
                         </span>
                       </div>
@@ -83,7 +87,7 @@ export const CarrosselProdutos = ({
                       </p>
 
                       <div className="flex justify-center pt-2">
-                        <button className="bg-orange-200 hover:bg-orange-100 text-black text-heading-h5  py-1 px-6 rounded-full cursor-pointer transition-colors">
+                        <button className="bg-orange-200 hover:bg-orange-100 text-black text-heading-h5 py-1 px-6 rounded-full cursor-pointer transition-colors">
                           Ver mais
                         </button>
                       </div>
@@ -93,6 +97,7 @@ export const CarrosselProdutos = ({
               ))}
             </div>
           </div>
+
           <button
             onClick={scrollNext}
             className="text-grey-100 hover:text-orange-200 transition-colors p-1 cursor-pointer"

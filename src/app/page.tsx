@@ -145,7 +145,7 @@ export default function Home() {
           </h2>
           <div className="flex-1 h-[1px] bg-grey-100" />
         </div>
-        <CarrosselProdutos produtos={notebooks} />
+        <CarrosselProdutos produtos={notebooks} bgContainer="bg-gradient-to-l from-[#14213D] to-[#3558A3] " />
       </section>
 
       <section className="w-full">
@@ -155,7 +155,7 @@ export default function Home() {
             Peças de Memória
           </h2>
         </div>
-        <CarrosselProdutos produtos={memorias} />
+        <CarrosselProdutos produtos={memorias} bgContainer="bg-gradient-to-r from-[#14213D] to-[#3558A3]"/>
       </section>
 
       <section className="w-full">
@@ -165,8 +165,11 @@ export default function Home() {
           </h2>
           <div className="flex-1 h-[1px] bg-grey-100" />
         </div>
-        <CarrosselProdutos produtos={escritorios} />
+        <CarrosselProdutos produtos={escritorios} bgContainer="bg-gradient-to-l from-[#14213D] to-[#3558A3] " />
       </section>
+      </section>
+      <section>
+
       </section>
     </main>
   );

@@ -1,33 +1,30 @@
 "use client";
 
-import React, { useCallback } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-export interface Produto {
+export interface Oferta {
   id: number;
   nome: string;
-  preco: string;
+  precoAntigo: string;
+  precoAtual: string;
   descricao: string;
   imagem: string;
 }
 
-interface CarrosselProdutosProps {
-  produtos: Produto[];
-  bgContainer?: string;
-  bgCard?: string;
+interface CarrosselOfertasProps {
+  produtos: Oferta[];
 }
 
-export const CarrosselProdutos = ({
-  produtos,
-  bgContainer = "bg-blue-100",
-  bgCard = "bg-blue-200",
-}: CarrosselProdutosProps) => {
+export const CarrosselOfertas = ({ produtos }: CarrosselOfertasProps) => {
   const [emblaRef, emblaApi] = useEmblaCarousel({
     align: "start",
-    loop: true,
+    loop: false,
   });
+
+  const [paginaAtual, setPaginaAtual] = useState(1);
 
   const scrollPrev = useCallback(() => {
     if (emblaApi) emblaApi.scrollPrev();
@@ -37,11 +34,23 @@ export const CarrosselProdutos = ({
     if (emblaApi) emblaApi.scrollNext();
   }, [emblaApi]);
 
+  const onSelect = useCallback(() => {
+    if (!emblaApi) return;
+    setPaginaAtual(emblaApi.selectedScrollSnap() + 1);
+  }, [emblaApi]);
+
+  useEffect(() => {
+    if (!emblaApi) return;
+    onSelect();
+    emblaApi.on("select", onSelect);
+    emblaApi.on("reInit", onSelect);
+  }, [emblaApi, onSelect]);
+
+  if (!produtos || produtos.length === 0) return null;
+
   return (
     <section className="w-full my-8 flex flex-col gap-4 p-4">
-      <div
-        className={`relative ${bgContainer} p-4 md:p-8 rounded-3xl flex flex-col items-center`}
-      >
+      <div className="relative bg-[linear-gradient(90deg,#14213D_17.31%,#253D70_51.59%,#14213D_100%)] p-4 md:p-8 rounded-3xl flex flex-col items-center">
         <div className="w-full flex items-center gap-2 md:gap-4">
           <button
             onClick={scrollPrev}
@@ -58,9 +67,7 @@ export const CarrosselProdutos = ({
                   key={produto.id}
                   className="flex-[0_0_100%] sm:flex-[0_0_50%] lg:flex-[0_0_33.333%] px-3 min-w-0"
                 >
-                  <div
-                    className={`${bgCard} rounded-2xl shadow-[13px_10px_4px_0_rgba(0,0,0,0.25)] overflow-hidden flex flex-col h-full`}
-                  >
+                  <div className="bg-blue-200 rounded-2xl shadow-[13px_10px_4px_0_rgba(0,0,0,0.25)] overflow-hidden flex flex-col h-full">
                     <div className="bg-grey-100 p-4 flex items-center justify-center h-48 relative rounded-t-2xl">
                       <Image
                         src={produto.imagem}
@@ -76,8 +83,11 @@ export const CarrosselProdutos = ({
                       </h3>
 
                       <div>
+                        <span className="text-grey-100/60 text-body-h5 line-through block mb-1">
+                          {produto.precoAntigo}
+                        </span>
                         <span className="bg-orange-200 text-black text-heading-h5 px-3 py-1 rounded-2xl inline-block">
-                          {produto.preco}
+                          {produto.precoAtual}
                         </span>
                       </div>
 
@@ -106,7 +116,7 @@ export const CarrosselProdutos = ({
           </button>
         </div>
 
-        <span className="text-grey-100 text-body-h3 mt-4">1</span>
+        <span className="text-grey-100 text-body-h3 mt-4">{paginaAtual}</span>
       </div>
     </section>
   );

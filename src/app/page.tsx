@@ -4,6 +4,46 @@ import {
   Produto,
 } from "../components/CarrosselProdutos/CarrosselProdutos";
 import { MissaoVisaoValores } from "../components/MissaoVisaoValores";
+import { CarrosselOfertas, Oferta } from "../components/CarrosselOfertas";
+
+const ofertas: Oferta[] = [
+  {
+    id: 1,
+    nome: "Controle Sony Dualsense Edge PS5, Sem Fio, Preto e Branco ",
+    precoAntigo: "R$ 1.394,07",
+    precoAtual: "R$ 1.199,00",
+    descricao:
+      "Botões reconfiguráveis. Personalize o layout do controle dos seus jogos favoritos para que os comandos estejam adaptados",
+    imagem: "/ofertas-1.svg",
+  },
+  {
+    id: 2,
+    nome: "Notebook Asus Tuf Gaming F16 Fx607vu RTX4050 Intel",
+    precoAntigo: "R$ 9.775,87",
+    precoAtual: "R$ 7.479,15",
+    descricao:
+      "intel core i5sistema operacionalwindows 11 homesistema operacional windows pré-instalado no produto",
+    imagem: "/ofertas-2.svg",
+  },
+  {
+    id: 3,
+    nome: "Notebook Acer Nitro 5 AN515-47-R5SU - Preto - AMD Ryzen 5",
+    precoAntigo: "R$ 5.999,00",
+    precoAtual: "R$ 4.298,77",
+    descricao:
+      "Notebook Acer Nitro 5 AN515-47-R5SU, processador AMD Ryzen 5 de sétima geração 6 núcleos (12 Threads) com velocidade de 4.55GHz",
+    imagem: "/ofertas-3.svg",
+  },
+  {
+    id: 4,
+    nome: "Notebook Acer Nitro 5 AN515-47-R5SU - Preto - AMD Ryzen 5...",
+    precoAntigo: "R$ 5.999,00",
+    precoAtual: "R$ 4.298,77",
+    descricao:
+      "Notebook Acer Nitro 5 AN515-47-R5SU, processador AMD Ryzen 5 de última geração 6 núcleos (12 Threads) com velocidade...",
+    imagem: "/ofertas-3.svg",
+  },
+];
 
 const notebooks: Produto[] = [
   {
@@ -11,7 +51,7 @@ const notebooks: Produto[] = [
     nome: "Notebook Gamer Lenovo LOQ 15IRX9, 15.6' Full HD",
     preco: "R$ 6.269,00",
     descricao:
-      "Processador Intel Core i5-13450HX de alta performance com 10 núcleos para máxima agilidade",
+      "Processador Intel Core i5-13450HX de alta performance com 10 núcleos para máxima agilidade",
     imagem: "/notebook-1.svg",
   },
   {
@@ -19,7 +59,7 @@ const notebooks: Produto[] = [
     nome: "Notebook Gamer Acer Nitro 5, 15.6' Full HD",
     preco: "R$ 7.599,00",
     descricao:
-      "O processador Intel Core i7-13620H de 13ª geração dita o ritmo com seus 10 núcleos e 16 threads, alcançando",
+      "O processador Intel Core i7-13620H de 13ª geração dita o ritmo com seus 10 núcleos e 16 threads, alcançando",
     imagem: "/notebook-2.svg",
   },
   {
@@ -112,6 +152,7 @@ const escritorios: Produto[] = [
 export default function Home() {
   return (
     <main className="min-h-screen bg-blue-200 text-grey-100 gap-1 ">
+      {/* Seção Hero Section */}
       <section className="relative w-full min-h-[420px] md:min-h-[480px] overflow-hidden flex items-center p-8 md:p-12">
         <Image
           src="/Imagem-landing-page.jpg"
@@ -140,7 +181,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-
+      {/* Seção Produtos */}
       <section className="p-4">
         <section className="w-full">
           <div className="flex items-center gap-4 w-full">
@@ -151,7 +192,7 @@ export default function Home() {
           </div>
           <CarrosselProdutos
             produtos={notebooks}
-            bgContainer="bg-gradient-to-l from-[#14213D] to-[#3558A3] "
+            bgContainer="bg-linear-to-l from-[#14213D] to-[#3558A3] "
           />
         </section>
 
@@ -164,7 +205,7 @@ export default function Home() {
           </div>
           <CarrosselProdutos
             produtos={memorias}
-            bgContainer="bg-gradient-to-r from-[#14213D] to-[#3558A3]"
+            bgContainer="bg-linear-to-r from-[#14213D] to-[#3558A3]"
           />
         </section>
 
@@ -177,10 +218,11 @@ export default function Home() {
           </div>
           <CarrosselProdutos
             produtos={escritorios}
-            bgContainer="bg-gradient-to-l from-[#14213D] to-[#3558A3] "
+            bgContainer="bg-linear-to-l from-[#14213D] to-[#3558A3] "
           />
         </section>
       </section>
+
       {/* Seção quem somos */}
       <section className="w-full px-6 py-12 ">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12">
@@ -191,7 +233,7 @@ export default function Home() {
 
             <div className="w-full h-[1px] bg-grey-100 mb-6" />
 
-            <p className="text-body-h5 md:text-body-h3 text-grey-100 text-center leading-relaxed">
+            <p className="text-body-h5 md:text-body-h3 text-grey-100 text-center ">
               A Quantum Store nasceu com o propósito de redefinir a sua
               experiência de compra. Inspirados pela ideia de evolução contínua
               e velocidade, nós buscamos muito mais do que apenas oferecer
@@ -214,7 +256,22 @@ export default function Home() {
           </div>
         </div>
       </section>
-  <MissaoVisaoValores />
+
+      {/* Seção Missão, Visão e Valores */}
+      <MissaoVisaoValores />
+
+      {/* Seção de Super Ofertas */}
+      <section className="w-full p-4">
+        <div className="w-full flex items-center gap-4 md:gap-8">
+          <div className="flex-1 h-[1px] bg-grey-100" />
+          <h2 className="text-heading-h2 whitespace-nowrap">
+            Ofertas Imperdíveis
+          </h2>
+          <div className="flex-1 h-[1px] bg-grey-100" />
+        </div>
+
+        <CarrosselOfertas produtos={ofertas} />
+      </section>
     </main>
   );
 }

@@ -51,7 +51,7 @@ export const Navbar = () => {
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className="flex items-center gap-2 text-grey-100 hover:text-orange-200 border-b-2 border-transparent hover:border-orange-200 pb-1 transition-all"
+                  className="flex items-center gap-2 text-grey-100 hover:text-orange-200 border-b-2 border-transparent hover:border-orange-200 hover:pb-1 transition-all"
                 >
                   <Icon className="w-5 h-5 shrink-0" />
                   <span>{link.label}</span>

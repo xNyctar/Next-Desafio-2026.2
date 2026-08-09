@@ -1,9 +1,7 @@
 import Image from "next/image";
-import Link from "next/link";
-
 export default function Home() {
   return (
-    <main className="min-h-screen bg-blue-200 text-grey-100 ">
+    <main className="min-h-screen bg-blue-200 text-grey-100 gap-2.5 ">
       <section className="relative w-full min-h-[420px] md:min-h-[480px] overflow-hidden flex items-center p-8 md:p-12">
         <Image
           src="/Imagem-landing-page.jpg"
@@ -32,6 +30,12 @@ export default function Home() {
           </div>
         </div>
       </section>
+  
+      <section>
+
+      </section>
+
+
     </main>
   );
 }

@@ -50,11 +50,11 @@ export const CarrosselProdutos = ({
           </button>
 
           <div className="overflow-hidden w-full" ref={emblaRef}>
-            <div className="flex -ml-8">
+            <div className="flex">
               {produtos.map((produto) => (
                 <div
                   key={produto.id}
-                  className="flex-[0_0_100%] sm:flex-[0_0_50%] lg:flex-[0_0_33.333%] px-8 min-w-0"
+                  className="flex-[0_0_100%] sm:flex-[0_0_50%] lg:flex-[0_0_33.333%] px-3 min-w-0"
                 >
                   <div className="bg-blue-200 rounded-2xl overflow-hidden flex flex-col h-full ">
                     

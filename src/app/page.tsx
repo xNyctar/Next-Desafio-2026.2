@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Produto } from "../components/CarrosselProdutos/CarrosselProdutos";
+import { CarrosselProdutos, Produto } from "../components/CarrosselProdutos/CarrosselProdutos";
 
 const notebooks: Produto[] = [
   {
@@ -137,7 +137,37 @@ export default function Home() {
         </div>
       </section>
 
-      <section></section>
+      <section className="p-4">
+         <section className="w-full">
+        <div className="flex items-center gap-4 w-full">
+          <h2 className="text-heading-h3 md:text-heading-h2 text-grey-100">
+            Notebooks
+          </h2>
+          <div className="flex-1 h-[1px] bg-grey-100" />
+        </div>
+        <CarrosselProdutos produtos={notebooks} />
+      </section>
+
+      <section className="w-full">
+        <div className="flex items-center gap-4 w-full">
+          <div className="flex-1 h-[1px] bg-grey-100" />
+          <h2 className="text-heading-h3 md:text-heading-h2 text-grey-100">
+            Peças de Memória
+          </h2>
+        </div>
+        <CarrosselProdutos produtos={memorias} />
+      </section>
+
+      <section className="w-full">
+        <div className="flex items-center gap-4 w-full">
+          <h2 className="text-heading-h3 md:text-heading-h2 text-grey-100">
+            Escritório
+          </h2>
+          <div className="flex-1 h-[1px] bg-grey-100" />
+        </div>
+        <CarrosselProdutos produtos={notebooks} />
+      </section>
+      </section>
     </main>
   );
 }

@@ -6,7 +6,7 @@ export const MissaoVisaoValores = () => {
     <section className="w-full px-6 py-12 md:py-4 bg-blue-100" >
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 min-h-140">
         
-        <div className="bg-linear-to-t from-[#14213D] to-[#0A111F] rounded-t-3xl p-8 md:p-10 flex flex-col items-center text-center justify-start">
+        <div className="md:bg-linear-to-t from-[#14213D] to-[#0A111F] md:rounded-t-3xl  bg-linear-to-r from-[#14213D] to-[#0A111F] rounded-r-3xl p-8 md:p-10 flex flex-col items-center text-center justify-start">
           <div className="flex items-center gap-2 mb-4">
             <Rocket className="w-6 h-6 text-grey-100" />
             <h3 className=" md:text-heading-h3 text-heading-h4 text-grey-100">Missão</h3>
@@ -17,7 +17,7 @@ export const MissaoVisaoValores = () => {
           </p>
         </div>
 
-        <div className="bg-linear-to-b from-[#14213D] to-[#0A111F] rounded-b-3xl p-8 md:p-10 flex flex-col items-center text-center justify-center">
+        <div className="md:bg-linear-to-b from-[#14213D] to-[#0A111F] md:rounded-b-3xl  bg-linear-to-l from-[#14213D] to-[#0A111F] rounded-l-3xl p-8 md:p-10 flex flex-col items-center text-center justify-center">
           <div className="flex items-center gap-2 mb-4">
             <Telescope className="w-6 h-6 text-grey-100" />
             <h3 className="md:text-heading-h3 text-heading-h4 text-grey-100">Visão</h3>
@@ -28,7 +28,7 @@ export const MissaoVisaoValores = () => {
           </p>
         </div>
 
-        <div className="bg-linear-to-t from-[#14213D] to-[#0A111F] rounded-t-3xl p-8 md:p-10 flex flex-col items-center text-center justify-end">
+        <div className="md:bg-linear-to-t from-[#14213D] to-[#0A111F] md:rounded-t-3xl bg-linear-to-r from-[#14213D] to-[#0A111F] rounded-r-3xl  p-8 md:p-10 flex flex-col items-center text-center justify-end">
           <div className="flex items-center gap-2 mb-4">
             <Award className="w-6 h-6 text-grey-100" />
             <h3 className="md:text-heading-h3 text-heading-h4 text-grey-100">Valores</h3>

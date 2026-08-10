@@ -38,7 +38,7 @@ export const CarrosselProdutos = ({
   }, [emblaApi]);
 
   return (
-    <section className="w-full my-8 flex flex-col gap-4 p-4">
+    <section className="w-full my-8 flex flex-col gap-4 ">
       <div
         className={`relative ${bgContainer} p-4 md:p-8 rounded-3xl flex flex-col items-center`}
       >

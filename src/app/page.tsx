@@ -182,7 +182,7 @@ export default function Home() {
         </div>
       </section>
       {/* Seção Produtos */}
-      <section className="p-4">
+      <section className="p-10">
         <section className="w-full">
           <div className="flex items-center gap-4 w-full">
             <h2 className="text-heading-h3 md:text-heading-h2 text-grey-100">

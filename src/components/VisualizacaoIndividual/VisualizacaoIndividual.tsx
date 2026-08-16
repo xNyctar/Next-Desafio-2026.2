@@ -23,7 +23,7 @@ export const VisualizacaoIndividual = ({
   const listaImagens = [produto.imagem];
 
   return (
-    <div className="min-w-screen min-h-screen mx-auto p-6 bg-blue-200 text-grey-100">
+    <div className=" mx-auto p-6 bg-blue-200 text-grey-100">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {/* Imagens do Produto */}
         <div className="flex flex-col gap-4">

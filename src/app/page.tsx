@@ -2,7 +2,7 @@ import Image from "next/image";
 import {
   CarrosselProdutos,
   Produto,
-} from "../components/CarrosselProdutos/CarrosselProdutos";
+} from "../components/CarrosselProdutos";
 import { MissaoVisaoValores } from "../components/MissaoVisaoValores";
 import { CarrosselOfertas, Oferta } from "../components/CarrosselOfertas";
 

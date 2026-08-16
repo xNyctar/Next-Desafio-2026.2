@@ -113,7 +113,7 @@ export default async function Home() {
               alt="Logo Quantum Store"
               width={260}
               height={260}
-              className="w-72 md:w-[380px] lg:w-[420px]"
+              className="w-72 md:w-95 lg:w-105"
             />
           </div>
         </div>

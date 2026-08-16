@@ -27,7 +27,7 @@ export const Card = ({ post }: CardProps) => {
         </h3>
 
         <div>
-          <span className="bg-orange-200 text-black text-body-h5 md:text-heading-h6 p-2.5 rounded-3xl">
+          <span className="bg-orange-200 text-black text-heading-h6 md:text-heading-h5 p-1.5 rounded-2xl">
             {post.preco.toLocaleString("pt-BR", {
               style: "currency",
               currency: "BRL",

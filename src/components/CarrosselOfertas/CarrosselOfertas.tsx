@@ -85,7 +85,7 @@ export const CarrosselOfertas = ({ produtos }: CarrosselOfertasProps) => {
                         </span>
                         )}
 
-                        <span className="bg-orange-200 text-black md:text-heading-h5 text-heading-h6 px-3 py-1 rounded-2xl ">
+                        <span className="bg-orange-200 text-black text-heading-h6 md:text-heading-h5 p-1.5 rounded-2xl">
                           {produto.preco.toLocaleString("pt-BR", {
                             style: "currency",
                             currency: "BRL",

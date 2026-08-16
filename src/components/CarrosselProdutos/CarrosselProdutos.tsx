@@ -71,7 +71,7 @@ export const CarrosselProdutos = ({
                       </h3>
 
                       <div>
-                        <span className="bg-orange-200 text-black text-heading-h5 px-3 py-1 rounded-2xl inline-block">
+                        <span className="bg-orange-200 text-black text-heading-h6 md:text-heading-h5 p-1.5 rounded-2xl">
                          {produto.preco.toLocaleString("pt-BR", {
                             style: "currency",
                             currency: "BRL",

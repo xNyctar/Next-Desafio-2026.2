@@ -1,18 +1,11 @@
 'use client'
 
+import { Produto } from "@/generated/prisma/client";
 import Image from "next/image";
 import Link from "next/link";
 
-export interface PostItem {
-  id: number | string;
-  nome: string;
-  preco: string;
-  descricao: string;
-  imagem: string;
-}
-
 interface CardProps {
-  post: PostItem;
+  post: Produto;
 }
 
 export const Card = ({ post }: CardProps) => {
@@ -35,7 +28,10 @@ export const Card = ({ post }: CardProps) => {
 
         <div>
           <span className="bg-orange-200 text-black text-body-h5 md:text-heading-h6 p-2.5 rounded-3xl">
-            {post.preco}
+            {post.preco.toLocaleString("pt-BR", {
+              style: "currency",
+              currency: "BRL",
+            })}
           </span>
         </div>
 
@@ -45,7 +41,7 @@ export const Card = ({ post }: CardProps) => {
 
         <div className="flex justify-center pt-2">
           <Link className="bg-orange-200 hover:bg-orange-100 text-black text-heading-h6 md:text-heading-h5 py-2 px-8 rounded-full cursor-pointer transition-colors"
-          href="/visualizacao-individual">
+          href={`/produtos/${post.id}`}>
             Ver mais
           </Link>
         </div>

@@ -5,18 +5,10 @@ import useEmblaCarousel from "embla-carousel-react";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Link from "next/link";
-
-export interface Oferta {
-  id: number;
-  nome: string;
-  precoAntigo: string;
-  precoAtual: string;
-  descricao: string;
-  imagem: string;
-}
+import { Produto } from "@/generated/prisma/client";
 
 interface CarrosselOfertasProps {
-  produtos: Oferta[];
+  produtos: Produto[];
 }
 
 export const CarrosselOfertas = ({ produtos }: CarrosselOfertasProps) => {
@@ -83,12 +75,21 @@ export const CarrosselOfertas = ({ produtos }: CarrosselOfertasProps) => {
                         {produto.nome}
                       </h3>
 
-                      <div>
-                        <span className="text-grey-100/60 text-body-h5 line-through block mb-1">
-                          {produto.precoAntigo}
+                      <div className="flex flex-col items-start">
+                        {produto.precoAntigo && (
+                        <span className="text-grey-100 line-through md:text-body-h4 text-body-h5 ">
+                          {produto.precoAntigo.toLocaleString("pt-BR", {
+                            style: "currency",
+                            currency: "BRL",
+                          })}
                         </span>
-                        <span className="bg-orange-200 text-black text-heading-h5 px-3 py-1 rounded-2xl inline-block">
-                          {produto.precoAtual}
+                        )}
+
+                        <span className="bg-orange-200 text-black md:text-heading-h5 text-heading-h6 px-3 py-1 rounded-2xl ">
+                          {produto.preco.toLocaleString("pt-BR", {
+                            style: "currency",
+                            currency: "BRL",
+                          })}
                         </span>
                       </div>
 
@@ -97,8 +98,10 @@ export const CarrosselOfertas = ({ produtos }: CarrosselOfertasProps) => {
                       </p>
 
                       <div className="flex justify-center pt-2">
-                        <Link className="bg-orange-200 hover:bg-orange-100 text-black text-heading-h5 py-1 px-6 rounded-full cursor-pointer transition-colors"
-                        href="/visualizacao-individual">
+                        <Link
+                          className="bg-orange-200 hover:bg-orange-100 text-black text-heading-h5 py-1 px-6 rounded-full cursor-pointer transition-colors"
+                          href={`/produtos/${produto.id}`}
+                        >
                           Ver mais
                         </Link>
                       </div>

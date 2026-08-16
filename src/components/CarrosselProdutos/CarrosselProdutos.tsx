@@ -5,14 +5,7 @@ import useEmblaCarousel from "embla-carousel-react";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Link from "next/link";
-
-export interface Produto {
-  id: number;
-  nome: string;
-  preco: string;
-  descricao: string;
-  imagem: string;
-}
+import { Produto } from "@/generated/prisma/client";
 
 interface CarrosselProdutosProps {
   produtos: Produto[];
@@ -37,6 +30,7 @@ export const CarrosselProdutos = ({
   const scrollNext = useCallback(() => {
     if (emblaApi) emblaApi.scrollNext();
   }, [emblaApi]);
+  
 
   return (
     <section className="w-full my-8 flex flex-col gap-4 ">
@@ -78,7 +72,10 @@ export const CarrosselProdutos = ({
 
                       <div>
                         <span className="bg-orange-200 text-black text-heading-h5 px-3 py-1 rounded-2xl inline-block">
-                          {produto.preco}
+                         {produto.preco.toLocaleString("pt-BR", {
+                            style: "currency",
+                            currency: "BRL",
+                          })}
                         </span>
                       </div>
 
@@ -88,7 +85,7 @@ export const CarrosselProdutos = ({
 
                       <div className="flex justify-center pt-2">
                         <Link className="bg-orange-200 hover:bg-orange-100 text-black text-heading-h5 py-1 px-6 rounded-full cursor-pointer transition-colors"
-                        href="/visualizacao-individual">
+                        href={`/produtos/${produto.id}`}>
                           Ver mais
                         </Link>
                       </div>

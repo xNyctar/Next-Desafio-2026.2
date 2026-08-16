@@ -1,48 +1,26 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import { Star, ShoppingCart, Truck } from "lucide-react";
-
-export interface ProdutoDetalhado {
-  id: number | string;
-  nome: string;
-  preco: string;
-  imagens: string[];
-  avaliacao: number;
-  vendas: string;
-  descricao: string;
-}
-
-const produtoPadrao: ProdutoDetalhado = {
-  id: "1",
-  nome: "Notebook Acer Nitro V15 ANV15-52-77BG intel core I7 13ª Geração, RTX 4050, 16GB RAM, 512GB SSD",
-  preco: "R$ 7.599,99",
-  avaliacao: 4,
-  vendas: "7.9k vendidos",
-  descricao:
-    "O processador Intel Core i7-13620H de 13ª geração dita o ritmo com seus 10 núcleos e 16 threads, alcançando uma frequência impressionante de até 4.90 GHz. Com 24 MB Intel Smart Cache, o sistema elimina gargalos de processamento, garantindo renderizações rápidas, compilações fluidas e uma resposta imediata mesmo sob cargas extremas de trabalho. Equipado com a poderosa placa de vídeo dedicada NVIDIA GeForce RTX 4050 com 6 GB GDDR6, este notebook entrega recursos avançados como Ray Tracing e DLSS. O painel IPS Full HD de 15.6 polegadas eleva a experiência visual ao patamar profissional com uma taxa de atualização de 165 Hz e brilho de 300 nits, eliminando rastros de imagem e garantindo fluidez máxima.",
-  imagens: [
-    "/notebook-1.svg",
-    "/notebook-2.svg",
-    "/notebook-3.svg",
-    "/memoria-1.svg",
-    "/escritorio-3.svg",
-  ],
-};
+import { Produto } from "@/generated/prisma/client";
 
 interface VisualizacaoIndividualProps {
-  produto?: ProdutoDetalhado;
+  produto: Produto;
 }
 
 export const VisualizacaoIndividual = ({
-  produto = produtoPadrao,
+  produto,
 }: VisualizacaoIndividualProps) => {
-  const [fotoAtiva, setFotoAtiva] = useState(
-    produto?.imagens?.[0] || produtoPadrao.imagens[0],
-  );
+  const [fotoAtiva, setFotoAtiva] = useState<string>(produto.imagem);
   const [quantidade, setQuantidade] = useState(1);
   const [cep, setCep] = useState("");
+
+  useEffect(() => {
+    setFotoAtiva(produto.imagem);
+  }, [produto]);
+
+  const listaImagens = [produto.imagem];
 
   return (
     <div className="min-w-screen min-h-screen mx-auto p-6 bg-blue-200 text-grey-100">
@@ -59,7 +37,7 @@ export const VisualizacaoIndividual = ({
           </div>
 
           <div className="grid grid-cols-5 gap-2">
-            {produto.imagens?.map((img, index) => (
+            {listaImagens.map((img, index) => (
               <button
                 key={index}
                 onClick={() => setFotoAtiva(img)}
@@ -79,11 +57,13 @@ export const VisualizacaoIndividual = ({
             ))}
           </div>
         </div>
+
         {/* Título do Produto */}
         <div className="flex flex-col gap-4 px-4">
           <h1 className="text-heading-h4 md:text-heading-h3 text-grey-100">
             {produto.nome}
           </h1>
+
           {/* Vendas do Produto */}
           <div className="flex items-center justify-between gap-4 text-body-h4 md:text-body-h3 text-grey-100">
             <div className="flex items-center text-orange-200">
@@ -91,21 +71,25 @@ export const VisualizacaoIndividual = ({
                 <Star
                   key={i}
                   className={`md:w-6 md:h-6 w-5 h-5 ${
-                    i < Math.floor(produto.avaliacao)
+                    i < Math.floor(produto.avaliacao ?? 0)
                       ? "fill-orange-200"
                       : "text-gray-500"
                   }`}
                 />
               ))}
             </div>
-            <span>{produto.vendas}</span>
+            <span>{produto.vendas ?? "0 vendas"}</span>
           </div>
 
           <div className="w-full h-px bg-grey-100 my-1" />
 
-          <span className="text-heading-h4 md:text-heading-h3  text-grey-100 ">
-            {produto.preco}
+          <span className="text-heading-h4 md:text-heading-h3 text-grey-100">
+            {produto.preco.toLocaleString("pt-BR", {
+              style: "currency",
+              currency: "BRL",
+            })}
           </span>
+
           {/* Comprar o Produto */}
           <div className="flex items-center justify-center gap-4 my-2">
             <div className="flex items-center border border-grey-100 rounded-xl bg-blue-200 px-6 py-4 w-50 justify-center">
@@ -134,6 +118,7 @@ export const VisualizacaoIndividual = ({
               Comprar agora
             </button>
           </div>
+
           {/* Consultar Frete do Produto */}
           <div className="mt-4 flex flex-col items-end gap-2">
             <div className="flex items-center gap-2 text-body-h5 text-grey-100">
@@ -155,12 +140,13 @@ export const VisualizacaoIndividual = ({
           </div>
         </div>
       </div>
+
       {/* Descrição do Produto */}
       <div className="mt-12 pt-8">
-        <h2 className="md:text-heading-h3 text-heading-h4 text-grey-100  mb-4">
+        <h2 className="md:text-heading-h3 text-heading-h4 text-grey-100 mb-4">
           Descrição do Produto
         </h2>
-        <p className="md:text-body-h4 text-body-h5 text-grey-100 ">
+        <p className="md:text-body-h4 text-body-h5 text-grey-100">
           {produto.descricao}
         </p>
       </div>

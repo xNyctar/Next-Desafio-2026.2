@@ -4,25 +4,39 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { User, Mail, Lock, Eye, EyeOff, CircleChevronLeft } from "lucide-react";
+import {
+  User,
+  Mail,
+  Lock,
+  Eye,
+  EyeOff,
+  CircleChevronLeft,
+} from "lucide-react";
 
-export const Login = () => {
+export const Cadastro = () => {
   const router = useRouter();
   const [nomeUsuario, setNomeUsuario] = useState("");
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
+  const [confirmarSenha, setConfirmarSenha] = useState("");
   const [mostrarSenha, setMostrarSenha] = useState(false);
+  const [mostrarConfirmarSenha, setMostrarConfirmarSenha] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Dados de login:", { nomeUsuario, email, senha });
+    console.log("Dados de cadastro:", {
+      nomeUsuario,
+      email,
+      senha,
+      confirmarSenha,
+    });
   };
 
   return (
     <div className="min-h-screen max-h-256 w-full flex items-center justify-center p-4 md:p-10 relative bg-blue-200">
       <Image
         src="/fundo-login.png"
-        alt="Fundo da Tela de Login"
+        alt="Fundo da Tela de Cadastro"
         fill
         priority
         className="object-cover object-center z-0"
@@ -31,7 +45,7 @@ export const Login = () => {
       <div className="bg-blue-100 text-grey-100 rounded-3xl p-6 md:p-10 w-full max-w-md md:max-w-2xl shadow-2xl z-10 relative">
         <div className="flex items-center justify-between mb-6 md:mb-8">
           <Link
-            href="/"
+            href="/login"
             className="text-grey-100 cursor-pointer shrink-0"
             aria-label="Voltar"
           >
@@ -39,7 +53,7 @@ export const Login = () => {
           </Link>
 
           <h1 className="text-center text-heading-h4 md:text-heading-h3 flex-1 pr-9 md:pr-11 font-bold">
-            Faça Login
+            Crie sua conta
           </h1>
         </div>
 
@@ -89,7 +103,7 @@ export const Login = () => {
               <Lock className="w-4 h-4 md:w-5 md:h-5 mr-3 shrink-0" />
               <input
                 type={mostrarSenha ? "text" : "password"}
-                placeholder="Senha do usuário"
+                placeholder="Senha de usuário"
                 value={senha}
                 onChange={(e) => setSenha(e.target.value)}
                 className="w-full bg-transparent outline-none text-body-h4 md:text-body-h3 placeholder:text-black pr-8"
@@ -109,23 +123,54 @@ export const Login = () => {
             </div>
           </div>
 
+          {/* Campo Confirme sua Senha */}
+          <div className="flex flex-col gap-1.5 md:gap-2">
+            <label className="text-grey-100 text-body-h4 md:text-body-h3">
+              Confirme sua senha
+            </label>
+            <div className="relative flex items-center bg-grey-100 rounded-xl px-4 py-3 md:px-5 md:py-4 text-black">
+              <Lock className="w-4 h-4 md:w-5 md:h-5 mr-3 shrink-0" />
+              <input
+                type={mostrarConfirmarSenha ? "text" : "password"}
+                placeholder="Confirme sua senha"
+                value={confirmarSenha}
+                onChange={(e) => setConfirmarSenha(e.target.value)}
+                className="w-full bg-transparent outline-none text-body-h4 md:text-body-h3 placeholder:text-black pr-8"
+                required
+              />
+              <button
+                type="button"
+                onClick={() =>
+                  setMostrarConfirmarSenha(!mostrarConfirmarSenha)
+                }
+                className="absolute right-3 bottom-2 md:right-4 md:bottom-2.5 hover:text-black focus:outline-none cursor-pointer shrink-0"
+              >
+                {mostrarConfirmarSenha ? (
+                  <Eye className="w-5 h-5" />
+                ) : (
+                  <EyeOff className="w-5 h-5" />
+                )}
+              </button>
+            </div>
+          </div>
+
           {/* Botão de Submit */}
           <div className="flex justify-center items-center px-0 md:px-12 mt-2">
             <button
               type="submit"
               className="w-full bg-orange-200 hover:bg-orange-100 text-black py-3.5 md:py-4 rounded-2xl transition-colors cursor-pointer shadow-2xl font-bold text-body-h3 md:text-body-h2 uppercase tracking-wide"
             >
-              FAZER LOGIN
+              CRIAR CONTA
             </button>
           </div>
 
           <p className="text-center text-grey-100 text-body-h4 md:text-body-h3 mt-2">
-            Não possui uma conta?{" "}
+            Já possui uma conta?{" "}
             <Link
-              href="/cadastro"
+              href="/login"
               className="text-orange-200 hover:text-orange-100 text-body-h4 md:text-body-h3 transition-colors font-semibold"
             >
-              Cadastre-se
+              Faça login
             </Link>
           </p>
         </form>

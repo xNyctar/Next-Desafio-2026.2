@@ -1,4 +1,7 @@
+'use client'
+
 import Image from "next/image";
+import Link from "next/link";
 
 export interface PostItem {
   id: number | string;
@@ -41,9 +44,10 @@ export const Card = ({ post }: CardProps) => {
         </p>
 
         <div className="flex justify-center pt-2">
-          <button className="bg-orange-200 hover:bg-orange-100 text-black text-heading-h6 md:text-heading-h5 py-2 px-8 rounded-full cursor-pointer transition-colors">
+          <Link className="bg-orange-200 hover:bg-orange-100 text-black text-heading-h6 md:text-heading-h5 py-2 px-8 rounded-full cursor-pointer transition-colors"
+          href="/visualizacao-individual">
             Ver mais
-          </button>
+          </Link>
         </div>
       </div>
     </div>

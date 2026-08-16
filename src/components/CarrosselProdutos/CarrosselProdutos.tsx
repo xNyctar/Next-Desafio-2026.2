@@ -4,6 +4,7 @@ import React, { useCallback } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import Link from "next/link";
 
 export interface Produto {
   id: number;
@@ -86,9 +87,10 @@ export const CarrosselProdutos = ({
                       </p>
 
                       <div className="flex justify-center pt-2">
-                        <button className="bg-orange-200 hover:bg-orange-100 text-black text-heading-h5 py-1 px-6 rounded-full cursor-pointer transition-colors">
+                        <Link className="bg-orange-200 hover:bg-orange-100 text-black text-heading-h5 py-1 px-6 rounded-full cursor-pointer transition-colors"
+                        href="/visualizacao-individual">
                           Ver mais
-                        </button>
+                        </Link>
                       </div>
                     </div>
                   </div>

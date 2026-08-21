@@ -5,12 +5,16 @@ import {
 import { MissaoVisaoValores } from "../components/MissaoVisaoValores";
 import { CarrosselOfertas } from "../components/CarrosselOfertas";
 import prisma from "../lib/db";
+import { getIdentities } from "./api/get-mvv";
 
 export default async function Home() {
   const ofertas = await prisma.produto.findMany({ where: { emOferta: true } });
   const notebooks = await prisma.produto.findMany({ where: { categoria: { nome: 'Notebooks' } } });
   const memorias = await prisma.produto.findMany({ where: { categoria: { nome: 'Peças de Memória' } } });
   const escritorios = await prisma.produto.findMany({ where: { categoria: { nome: 'Escritório' } } });
+
+  const identidades = await getIdentities();
+  
   return (
     <main className="min-h-screen bg-blue-200 text-grey-100 gap-1">
       {/* Seção Hero Section */}
@@ -120,7 +124,7 @@ export default async function Home() {
       </section>
 
       {/* Seção Missão, Visão e Valores */}
-      <MissaoVisaoValores />
+      <MissaoVisaoValores data={identidades}/>
 
       {/* Seção de Super Ofertas */}
       <section className="w-full p-4" id="ofertas">

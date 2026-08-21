@@ -50,7 +50,7 @@ export const Contato = () => {
     <div className="bg-blue-200 flex flex-col px-4 py-8 md:px-12 gap-4 items-center justify-center min-h-screen">
       <h1 className="text-heading-h1 text-grey-100 mb-4">Contato</h1>
 
-      <div className="flex flex-col xl:flex-row gap-8 w-full max-w-7xl">
+      <div className="flex flex-col lg:flex-row gap-8 w-full max-w-7xl">
         <div className="w-full max-w-250 mx-auto xl:w-1/2 bg-blue-100 flex flex-col p-6 md:p-8 rounded-3xl text-grey-100 gap-6">
           <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4 w-full">
             

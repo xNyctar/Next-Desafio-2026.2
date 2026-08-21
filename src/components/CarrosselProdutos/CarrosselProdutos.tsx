@@ -104,8 +104,6 @@ export const CarrosselProdutos = ({
             <ChevronRight className="w-6 h-6 md:w-8 md:h-8" />
           </button>
         </div>
-
-        <span className="text-grey-100 text-body-h3 mt-4">1</span>
       </div>
     </section>
   );

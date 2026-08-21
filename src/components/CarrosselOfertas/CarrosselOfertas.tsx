@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useCallback } from "react";
+import React, {useEffect, useCallback } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
@@ -17,8 +17,6 @@ export const CarrosselOfertas = ({ produtos }: CarrosselOfertasProps) => {
     loop: false,
   });
 
-  const [paginaAtual, setPaginaAtual] = useState(1);
-
   const scrollPrev = useCallback(() => {
     if (emblaApi) emblaApi.scrollPrev();
   }, [emblaApi]);
@@ -29,7 +27,6 @@ export const CarrosselOfertas = ({ produtos }: CarrosselOfertasProps) => {
 
   const onSelect = useCallback(() => {
     if (!emblaApi) return;
-    setPaginaAtual(emblaApi.selectedScrollSnap() + 1);
   }, [emblaApi]);
 
   useEffect(() => {
@@ -77,12 +74,12 @@ export const CarrosselOfertas = ({ produtos }: CarrosselOfertasProps) => {
 
                       <div className="flex flex-col items-start">
                         {produto.precoAntigo && (
-                        <span className="text-grey-100 line-through md:text-body-h4 text-body-h5 ">
-                          {produto.precoAntigo.toLocaleString("pt-BR", {
-                            style: "currency",
-                            currency: "BRL",
-                          })}
-                        </span>
+                          <span className="text-grey-100 line-through md:text-body-h4 text-body-h5 ">
+                            {produto.precoAntigo.toLocaleString("pt-BR", {
+                              style: "currency",
+                              currency: "BRL",
+                            })}
+                          </span>
                         )}
 
                         <span className="bg-orange-200 text-black text-heading-h6 md:text-heading-h5 p-1.5 rounded-2xl">
@@ -120,8 +117,6 @@ export const CarrosselOfertas = ({ produtos }: CarrosselOfertasProps) => {
             <ChevronRight className="w-6 h-6 md:w-8 md:h-8" />
           </button>
         </div>
-
-        <span className="text-grey-100 text-body-h3 mt-4">{paginaAtual}</span>
       </div>
     </section>
   );

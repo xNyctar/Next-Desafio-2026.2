@@ -12,6 +12,15 @@
   --color-blue-200: #0a111f;
   --color-orange-100: #ffc76b;
   --color-orange-200: #fca311;
+  
+  /* ----------------------- Breakpoints----------------------- */
+  --breakpoint-sm: 350px;
+  --breakpoint-md: 768px;
+  --breakpoint-bp-840: 840px;
+  --breakpoint-lg: 1280px;
+  --breakpoint-xl: 1920px;
+  --breakpoint-2xl: 2260px;
+  --breakpoint-3xl: 3440px;
 }
 
 /*  ----------  Estilização de Fontes de Títulos ou Textos  ----------------------- */
